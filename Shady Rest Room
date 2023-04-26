@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+class ShadyRestRoom
+{
+// ----------------------------------
+public static void main(String[] args)
+{
+int roomChoice;
+int priceOfRoom;
+String roomDescription;
+
+roomChoice = getRoomChoice();
+
+roomDescription = getRoomDescription(roomChoice);
+
+priceOfRoom = getRoomPrice(roomChoice);
+
+displayRoomChoice(roomChoice, roomDescription, priceOfRoom);
+
+}// End Main
+
+// ----------------------------------
+private static int getRoomChoice()
+{
+Scanner keyboard = new Scanner(System.in);
+int roomChoice;
+
+System.out.println("*** CHOICE OF ROOMS ***");
+System.out.println(" 1 - " + getRoomDescription(1) );
+System.out.println(" 2 - " + getRoomDescription(2) );
+System.out.println(" 3 - " + getRoomDescription(3) );
+System.out.println();
+System.out.println("Enter your choice of room: ");
+roomChoice = keyboard.nextInt();
+
+return roomChoice;
+}// End Method
+
+//------------------------------------
+private static String getRoomDescription(int roomChoice)
+{
+String roomDescription;
+
+switch (roomChoice)
+{
+case 1: roomDescription = "Queen Bed";
+   break;
+case 2: roomDescription = "King Bed";
+   break;
+case 3: roomDescription = "King Bed with Pull-out Couch";
+   break;
+default: roomDescription = "Unknown";
+}// End switch
+return roomDescription;
+}// End Method
+
+//--------------------------------------
+private static int getRoomPrice(int roomChoice)
+{
+int roomPrice;
+
+switch (roomChoice)
+{
+case 1: roomPrice = 125;
+   break;
+case 2: roomPrice = 139;
+   break;
+case 3: roomPrice = 165;
+   break;
+default: roomPrice = 0;
+}// End Switch
+return roomPrice;
+}// End Method
+
+//---------------------------------------
+private static void displayRoomChoice(int roomChoice, String roomDescription, int priceOfRoom)
+{
+System.out.println("Excellent choice! You picked #" + roomChoice + " which is a " 
++ roomDescription + ". Your total per night is: $" + priceOfRoom +".");
+}// End Method
+}// End Class
