@@ -1,0 +1,122 @@
+import java.util.Scanner;
+class ArrayMethodDemo
+{
+
+// -----------------
+public static void main(String[] args)
+{
+final int MAX_SIZE = 8;
+
+int[] list = new int[MAX_SIZE];
+int value;
+boolean contineDesired = true;
+Scanner keyboard = new Scanner(System.in);
+
+// ------------------
+while (contineDesired)
+{
+   System.out.print("Enter and integer value: ");
+   value = keyboard.nextInt();
+   
+   if (value == 0)
+      break;
+   initializeList(list);
+
+   displayListForward(list);
+
+   displayListBackward(list);
+
+   displayListSum(list);
+
+   displayAllLessThenValue(list, value);
+
+   displayAllHigherThanAverage(list);
+}// End While
+}// End Main
+
+
+private static void initializeList(int[] list)
+{
+for (int i = 0; i < list.length; i++)
+   list[i] = (i + 1) * (i + 1);
+}// End Method
+
+// ---------------------
+private static void displayListForward(int[] list)
+{
+System.out.println();
+System.out.println("Print list in forward order: ");
+for (int i = 0; i < list.length; i++)
+   System.out.print(list[i] + " ");
+System.out.println();// Prints Normally
+}// End Method
+
+// ---------------------
+private static void displayListBackward(int[] list)
+{
+System.out.println();
+System.out.println("Print list in reverse order: ");
+for (int i = list.length - 1; i >= 0; i--)
+   System.out.print(list[i] + " ");
+System.out.println();// Prints in reverse
+}// End Method
+// ---------------------
+private static void displayListSum(int[] list)
+{
+int sum = 0;
+System.out.println();
+System.out.println("Print list sum: ");
+for (int i = 0; i < list.length; i++)
+   sum = sum + list[i];
+   System.out.println(sum);
+System.out.println();// Prints Normally
+}// End Method
+
+// ---------------------
+private static void displayAllLessThenValue(int[] list, int value)
+{
+System.out.println();
+System.out.println("Print list values less than " + value + ": ");
+
+for (int i = 0; i < list.length; i++)
+   {
+   if (list[i] < value)
+      System.out.print(list[i] + "  ");
+   }// End for
+   System.out.println();
+
+}// End Method
+// ---------------------
+private static void displayAllHigherThanAverage(int[] list)
+{
+double average; 
+
+average = calculateAverage(list);
+
+System.out.println();
+System.out.println("Print list values greater than calculated value of " + average + ":");
+
+for (int i = 0; i < list.length; i++)
+   {
+   if (list[i] > average)
+      System.out.print(list[i] + "  ");
+   }// End for
+   System.out.println();
+}// End Method
+
+// ---------------------
+private static double calculateAverage(int[] list)
+{
+double sum = 0;
+double average;
+
+for (int i = 0; i < list.length; i++)
+   sum = sum + list[i];
+   
+average = sum / list.length;
+
+return average;
+
+}// End method
+
+}// End Class
